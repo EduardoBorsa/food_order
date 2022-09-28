@@ -16,6 +16,7 @@ defmodule FoodOrderWeb.ConnCase do
   """
 
   use ExUnit.CaseTemplate
+  alias FoodOrder.DataCase
 
   using do
     quote do
@@ -32,7 +33,7 @@ defmodule FoodOrderWeb.ConnCase do
   end
 
   setup tags do
-    FoodOrder.DataCase.setup_sandbox(tags)
+    DataCase.setup_sandbox(tags)
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 end
