@@ -1,4 +1,4 @@
-name: Verify Format
+name: Doctor
 
 on: pull_request
 
