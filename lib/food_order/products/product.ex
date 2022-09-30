@@ -1,4 +1,13 @@
 defmodule FoodOrder.Products.Product do
+  @type t :: %__MODULE__{
+          name: String.t(),
+          description: String.t(),
+          price: integer(),
+          size: String.t(),
+          updated_at: NaiveDateTime.t(),
+          inserted_at: NaiveDateTime.t()
+        }
+
   use Ecto.Schema
   import Ecto.Changeset
 
