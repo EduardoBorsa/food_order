@@ -29,7 +29,7 @@ defmodule FoodOrder.DataCase do
   end
 
   setup tags do
-    DataCase.setup_sandbox(tags)
+    setup_sandbox(tags)
     :ok
   end
 
