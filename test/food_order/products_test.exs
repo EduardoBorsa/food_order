@@ -3,8 +3,11 @@ defmodule FoodOrder.ProductsTest do
   alias FoodOrder.Products
   alias FoodOrder.Products.Product
 
+  import FoodOrder.Factory
+
   test "list_products/0" do
-    assert Products.list_products() == []
+    product = insert(:product)
+    assert Products.list_products() == [product]
   end
 
   test "create product" do
