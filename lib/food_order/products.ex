@@ -8,7 +8,7 @@ defmodule FoodOrder.Products do
   @doc """
     List all product.
   """
-  @spec list_products() :: list(Product)
+  @spec list_products() :: list(Product.t())
   def list_products, do: Repo.all(Product)
 
   @doc """
