@@ -64,7 +64,8 @@ defmodule FoodOrder.MixProject do
       {:ex_machina, "~> 2.7.0"},
       {:faker, "~> 0.17", only: [:test, :dev]},
       {:doctor, "~> 0.19.0", only: :dev},
-      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev}
+      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
+      {:money, "~> 1.9"}
     ]
   end
 

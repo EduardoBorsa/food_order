@@ -2,7 +2,7 @@ defmodule FoodOrder.Products.Product do
   @type t :: %__MODULE__{
           name: String.t(),
           description: String.t(),
-          price: integer(),
+          price: Money.t(),
           size: String.t(),
           updated_at: NaiveDateTime.t(),
           inserted_at: NaiveDateTime.t()
@@ -19,7 +19,7 @@ defmodule FoodOrder.Products.Product do
   schema "products" do
     field :name, :string
     field :description, :string
-    field :price, :integer
+    field :price, Money.Ecto.Amount.Type
     field :size, :string
 
     timestamps()
