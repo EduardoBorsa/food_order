@@ -11,6 +11,8 @@ defmodule FoodOrder.Products do
   @spec list_products() :: list(Product.t())
   def list_products, do: Repo.all(Product)
 
+  def get!(id), do: Repo.get!(Product, id)
+
   @doc """
     Creates a product.
   """
@@ -21,6 +23,17 @@ defmodule FoodOrder.Products do
     |> Repo.insert()
   end
 
-  def change_product(product, params), do: Product.changeset(product, params)
-  def change_product, do: Product.changeset()
+  def update_product(product, attrs) do
+    product
+    |> Product.changeset(attrs)
+    |> Repo.update()
+  end
+
+  def delete(id) do
+    id
+    |> get!()
+    |> Repo.delete()
+  end
+
+  def change_product(product, params \\ %{}), do: Product.changeset(product, params)
 end

@@ -21,9 +21,13 @@ defmodule FoodOrderWeb.Router do
 
     scope "/admin", Admin, as: :admin do
       live "/products", ProductLive, :index
+      live "/products/new", ProductLive, :new
+      live "/products/:id/edit", ProductLive, :edit
+      live "/products/:id", ProductLive.Show, :show
     end
   end
 
+  # coveralls-ignore-start
   # Other scopes may use custom stacks.
   # scope "/api", FoodOrderWeb do
   #   pipe_through :api
@@ -57,4 +61,6 @@ defmodule FoodOrderWeb.Router do
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
   end
+
+  # coveralls-ignore-stop
 end
