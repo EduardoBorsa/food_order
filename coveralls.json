@@ -1,7 +1,6 @@
 {
   "skip_files": [
     "lib/food_order/application.ex",
-    "lib/food_order/orders/orders.ex",
     "lib/food_order_web.ex",
     "lib/food_order_web/telemetry.ex",
     "lib/food_order_web/views/error_helpers.ex",
@@ -9,6 +8,6 @@
   ],
   "coverage_options": {
     "treat_no_relevant_lines_as_covered": true,
-    "minimum_coverage": 50
+    "minimum_coverage": 95
   }
 }
