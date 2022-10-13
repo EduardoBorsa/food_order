@@ -21,13 +21,6 @@ defmodule FoodOrderWeb.Router do
     pipe_through :browser
 
     live "/", MainLive, :index
-
-    scope "/admin", Admin, as: :admin do
-      live "/products", ProductLive, :index
-      live "/products/new", ProductLive, :new
-      live "/products/:id/edit", ProductLive, :edit
-      live "/products/:id", ProductLive.Show, :show
-    end
   end
 
   # coveralls-ignore-start
@@ -88,6 +81,15 @@ defmodule FoodOrderWeb.Router do
     get "/users/settings", UserSettingsController, :edit
     put "/users/settings", UserSettingsController, :update
     get "/users/settings/confirm_email/:token", UserSettingsController, :confirm_email
+
+    live_session :is_admin, on_mount: {LiveSessions.Permissions, :admin} do
+      scope "/admin", Admin, as: :admin do
+        live "/products", ProductLive, :index
+        live "/products/new", ProductLive, :new
+        live "/products/:id/edit", ProductLive, :edit
+        live "/products/:id", ProductLive.Show, :show
+      end
+    end
   end
 
   scope "/", FoodOrderWeb do
